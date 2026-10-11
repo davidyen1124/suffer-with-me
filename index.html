@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover" />
+    <title>You are cordially invited to suffer</title>
+    <meta name="description" content="A formal invitation to runs, workouts and type 2 fun, because I really like you. Acted out by two fluffy things. Fan-made, after a post by @jaixbhatia." />
+    <meta name="theme-color" content="#113428" />
+    <meta property="og:title" content="You are cordially invited to suffer" />
+    <meta property="og:description" content="Runs, workouts, type 2 fun. Because I really like you." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Suffer With Me" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A formal invitation in green and gold, reading: You are cordially invited to suffer with me. Runs, workouts, type 2 fun. Because I really like you. Beside it, in a little gold theatre, two fluffy creatures: a cream one holding a sealed envelope and a pink one in a sweatband." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="You are cordially invited to suffer" />
+    <meta name="twitter:description" content="Runs, workouts, type 2 fun. Because I really like you." />
+    <meta name="twitter:image" content="/og.jpg" />
+    <meta name="twitter:image:alt" content="A formal invitation in green and gold: You are cordially invited to suffer with me. Two fluffy creatures stand beside it, one holding a sealed envelope." />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/models/suffer.glb" as="fetch" crossorigin />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #113428;
+        color: #f4ead2;
+      }
+      /* the first paint: the card, its border, and a small line of type that counts */
+      .boot {
+        position: fixed;
+        inset: 0;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        font: italic 15px/1 Georgia, 'Times New Roman', serif;
+        letter-spacing: 0.08em;
+        color: #d8b25a;
+      }
+      .boot::before {
+        content: '';
+        position: absolute;
+        inset: 13px;
+        border: 5px solid #d8b25a;
+      }
+      /* nothing of the page shows until it is laid out */
+      #app {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="boot" data-boot>Engraving your invitation&ensp;<span data-boot-count>0</span></p>
+    <div id="app">
+      <!-- the card and its gold border: a still picture in the same coarse pixels as the 3D -->
+      <canvas id="paper" aria-hidden="true"></canvas>
+      <!-- everything that scrolls: the type, and an empty box on each page for its little theatre -->
+      <main id="scroll" tabindex="-1"></main>
+      <!-- the little theatres, drawn over the page and pinned to those boxes -->
+      <canvas id="stage" aria-hidden="true"></canvas>
+      <p class="clock" data-clock aria-hidden="true"></p>
+      <nav class="dots" data-dots aria-label="The programme"></nav>
+    </div>
+    <noscript><p style="position: fixed; inset: 0; display: grid; place-items: center; font: 18px Georgia, serif; padding: 2em; text-align: center">You are cordially invited to suffer. The invitation needs JavaScript; the suffering does not.</p></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

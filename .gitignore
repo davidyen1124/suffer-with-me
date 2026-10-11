@@ -1,0 +1,7 @@
+node_modules
+dist
+.vercel
+.DS_Store
+blender/__pycache__
+art/logs
+qa

@@ -1,0 +1,29 @@
+{
+  "name": "suffer-with-me",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "You are cordially invited to suffer: a formal invitation to runs, workouts and type 2 fun, acted out by two fluffy things. Fan-made, after a post by @jaixbhatia.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "art": "node scripts/gen.mjs",
+    "art:cook": "node scripts/cook.mjs",
+    "textures": "node scripts/textures.mjs",
+    "model": "node scripts/textures.mjs && /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup --python blender/build_suffer.py -- public/models/suffer.glb",
+    "meta": "node scripts/meta.mjs",
+    "shots": "node scripts/shots.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/playfair-display": "^5.2.0",
+    "@fontsource/eb-garamond": "^5.2.0",
+    "@fontsource/pinyon-script": "^5.2.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.3"
+  }
+}
