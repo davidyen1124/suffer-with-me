@@ -5,6 +5,7 @@
 // "slot") and follows it as the page scrolls.
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { asset } from './asset.js'
 import FACES from './faces.json'
 import { SCENES } from './scenes.js'
 
@@ -103,8 +104,8 @@ export async function createStage(canvas, slots, { onProgress = () => {} } = {})
   const total = names.length * 2 + 1
   const tick = () => onProgress(++done / total)
   const [gltf, ...painted] = await Promise.all([
-    new GLTFLoader().loadAsync('/models/suffer.glb').then((g) => (tick(), g)),
-    ...names.flatMap((n) => [`/art/bg-${n}.png`, `/art/floor-${n}.png`]).map((url) => loader.loadAsync(url).then((t) => (tick(), pixelArt(t)))),
+    new GLTFLoader().loadAsync(asset('models/suffer.glb')).then((g) => (tick(), g)), // the address index.html preloads
+    ...names.flatMap((n) => [asset(`art/bg-${n}.png`), asset(`art/floor-${n}.png`)]).map((url) => loader.loadAsync(url).then((t) => (tick(), pixelArt(t)))),
   ])
   const art = {}
   names.forEach((n, i) => (art[n] = { bg: painted[i * 2], floor: painted[i * 2 + 1] }))

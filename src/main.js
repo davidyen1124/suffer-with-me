@@ -6,6 +6,7 @@ import '@fontsource/eb-garamond/400-italic.css'
 import '@fontsource/eb-garamond/500.css'
 import '@fontsource/pinyon-script/400.css'
 import './styles.css'
+import { asset } from './asset.js'
 import { COVER, GAUGE, PROGRAMME, QUOTE, RSVP, SECTIONS, SMALL_PRINT } from './copy.js'
 import { createPaper, foil } from './paper.js'
 import { createStage } from './stage.js'
@@ -46,7 +47,7 @@ const page = (id, ...children) => {
 
 function cover() {
   const crest = el('img', 'crest')
-  crest.src = '/art/crest.png'
+  crest.src = asset('art/crest.png')
   crest.alt = 'A coat of arms: a running shoe, a kettlebell, an ice cube and a banana, under an alarm clock, held up by two fluffy things.'
   crest.width = 132
   crest.height = 126
@@ -96,7 +97,7 @@ function rsvp() {
   const head = el('p', 'kicker')
   head.append(el('span', 'no', RSVP.kicker), el('span', 'rule'), el('span', 'time', RSVP.by))
   const seal = el('img', 'seal')
-  seal.src = '/art/seal.png'
+  seal.src = asset('art/seal.png')
   seal.alt = ''
   seal.width = 72
   seal.height = 71

@@ -1,20 +1,20 @@
-// Cuts the paintings from art/raw down to what the page loads.
+// Cuts the paintings from assets-src/art/raw down to what the page loads.
 //   public/art/bg-<scene>.png     the part of a backdrop that shows above the stage, at the 3D's own coarse size
 //   public/art/floor-<scene>.png  the painted ground under it, which is laid on the stage floor
 //   public/art/crest.png, seal.png  the gold crest and the wax seal, in the same coarse pixels
-//   blender/tex/seal.png          the seal again, tiny, for the envelope's label (scripts/textures.mjs)
+//   assets-src/blender/tex/seal.png  the seal again, tiny, for the envelope's label (scripts/textures.mjs)
 // usage: node scripts/cook.mjs
 import sharp from 'sharp'
 import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
-const RAW = path.join(ROOT, 'art/raw')
+const RAW = path.join(ROOT, 'assets-src/art/raw')
 const OUT = path.join(ROOT, 'public/art')
 fs.mkdirSync(OUT, { recursive: true })
-fs.mkdirSync(path.join(ROOT, 'blender/tex'), { recursive: true })
+fs.mkdirSync(path.join(ROOT, 'assets-src/blender/tex'), { recursive: true })
 
-export const FLAT = { w: 2.6, h: 2.1 } // the backdrop card, in metres (blender/build_suffer.py makes it this size)
+export const FLAT = { w: 2.6, h: 2.1 } // the backdrop card, in metres (assets-src/blender/build_suffer.py makes it this size)
 const BW = 320
 const BH = Math.round((BW * FLAT.h) / FLAT.w)
 
@@ -52,4 +52,4 @@ async function ornament(name, size, file = path.join(OUT, `${name}.png`)) {
 }
 await ornament('crest', 132)
 await ornament('seal', 72)
-await ornament('seal', 18, path.join(ROOT, 'blender/tex/seal.png'))
+await ornament('seal', 18, path.join(ROOT, 'assets-src/blender/tex/seal.png'))

@@ -1,13 +1,13 @@
-// Pixel textures for the model, drawn here pixel by pixel and saved into blender/tex/.
+// Pixel textures for the model, drawn here pixel by pixel and saved into assets-src/blender/tex/.
 // Three kinds: small repeating tiles (grey detail that the model's vertex colours tint), one sheet of
 // faces (every expression the fluffy things have), and one sheet of labels (everything with lettering).
-// blender/build_suffer.py reads atlas.json to place them. usage: node scripts/textures.mjs
+// assets-src/blender/build_suffer.py reads atlas.json to place them. usage: node scripts/textures.mjs
 import sharp from 'sharp'
 import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
-const OUT = path.join(ROOT, 'blender/tex')
+const OUT = path.join(ROOT, 'assets-src/blender/tex')
 fs.mkdirSync(OUT, { recursive: true })
 
 function rng(seed) {

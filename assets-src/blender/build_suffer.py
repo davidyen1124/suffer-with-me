@@ -2,7 +2,7 @@
 # public/models/suffer.glb.
 #
 #   /Applications/Blender.app/Contents/MacOS/Blender --background --factory-startup \
-#       --python blender/build_suffer.py -- public/models/suffer.glb
+#       --python assets-src/blender/build_suffer.py -- public/models/suffer.glb
 #
 # The look is an old 3D adventure game: few polygons, small pixel textures, lighting baked into the
 # vertices. The file is a box of parts, not a scene: every object sits at the origin with its pivot where
@@ -25,7 +25,7 @@ from mathutils.bvhtree import BVHTree  # noqa: E402
 TEX = os.path.join(HERE, 'tex')
 ATLAS = json.load(open(os.path.join(TEX, 'atlas.json')))
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
-OUT = os.path.abspath(argv[0] if argv else os.path.join(HERE, '..', 'public', 'models', 'suffer.glb'))
+OUT = os.path.abspath(argv[0] if argv else os.path.join(HERE, '..', '..', 'public', 'models', 'suffer.glb'))
 
 FUR = 0xf6efe2       # the page tints it: cream for the guest, pink for the host
 FUR_LIGHT = 0xffffff

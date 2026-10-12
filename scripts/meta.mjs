@@ -164,13 +164,13 @@ fs.writeFileSync(
       name: 'You are cordially invited to suffer',
       short_name: 'Suffer',
       description: 'A formal invitation to runs, workouts and type 2 fun. A fan-made page.',
-      start_url: '/',
+      start_url: '.', // (a manifest's addresses are relative to the manifest, so these work under a sub-path)
       display: 'browser',
       background_color: CARD,
       theme_color: CARD,
       icons: [
-        { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-        { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+        { src: 'icon-192.png', sizes: '192x192', type: 'image/png' },
+        { src: 'icon-512.png', sizes: '512x512', type: 'image/png' },
       ],
     },
     null,

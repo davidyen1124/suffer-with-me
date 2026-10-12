@@ -1,15 +1,15 @@
 // Paints the art with Codex CLI's built-in image_gen tool (the imagegen skill), one `codex exec` per image.
-// usage: node scripts/gen.mjs [--force] [-j 4] [name ...]   (default: every entry in art/manifest.mjs)
-// Output: art/raw/<name>.png
+// usage: node scripts/gen.mjs [--force] [-j 4] [name ...]   (default: every entry in assets-src/art/manifest.mjs)
+// Output: assets-src/art/raw/<name>.png
 import { spawn } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { ASSETS, CUTOUT, STYLE } from '../art/manifest.mjs'
+import { ASSETS, CUTOUT, STYLE } from '../assets-src/art/manifest.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
-const RAW = path.join(ROOT, 'art/raw')
-const LOG = path.join(ROOT, 'art/logs')
+const RAW = path.join(ROOT, 'assets-src/art/raw')
+const LOG = path.join(ROOT, 'assets-src/art/logs')
 const GEN = path.join(os.homedir(), '.codex/generated_images')
 fs.mkdirSync(RAW, { recursive: true })
 fs.mkdirSync(LOG, { recursive: true })
